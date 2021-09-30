@@ -10,9 +10,11 @@ docker run \
     --env GROUP_ID="$(id -g)" \
     --env LANG=ru_RU.UTF-8 \
     --env PW2_DATASTORE=postgres \
-    --env PW2_PGDATABASE=pgwatch \
+    --env PW2_PGDATABASE=pgwatch2 \
     --env PW2_PGHOST=/run/postgresql \
-    --env PW2_PGUSER=pgwatch \
+    --env PW2_PG_METRIC_STORE_CONN_STR="postgresql://pgwatch2:pgwatch2@postgres/pgwatch2"  \
+    --env PW2_PG_SCHEMA_TYPE=metric-dbname-time \
+    --env PW2_PGUSER=pgwatch2 \
     --env TZ=Asia/Yekaterinburg \
     --env USER_ID="$(id -u)" \
     --hostname pgwatch \
